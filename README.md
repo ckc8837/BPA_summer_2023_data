@@ -1,2 +1,2 @@
 # BPA_summer_2023_data
-Code and data for O14 and P13 Boomplaas Lithics
+Code and data for O14 and P13 Boomplaas Lithics. "bpa_flake_data.csv" contains all of the recorded flake attribute data for both complete flakes and retouched/utilized pieces (which I later separate in the "convergence_2.qmd" code file. "bpa_core_data.csv" contains all of the recorded core attribute data. The "ARI.csv" file contains the data needed for calculating the Assemblage Reduction Intensity Index (Olszewski et al. 2011). 
