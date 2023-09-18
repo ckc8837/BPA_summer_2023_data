@@ -1,0 +1,725 @@
+---
+title: "convergence"
+bibliography: references.bib
+---
+
+## What did I set out to do? Introduction
+
+The issue of technological convergence has played a substantial role in debates regarding large-scale population demographic processes and human behavioral evolution [@clarkson2018; @mellars2006]
+
+Hypothesis: Raw material selection should drive lithic technological convergence in environmentally diverse areas. Under this scenario, we expect significant shape and size differences to exist between flaked products.
+
+## How did I do it? (Materials and Methods)
+
+This study attempts to evaluate lithic technological convergence with statistical measures. We specifically
+
+```{r}
+library(tidyverse)
+library(ggsci)
+library(ggrepel)
+```
+
+```{r}
+bpa_flakes = read.csv("C:/Users/caleb/Desktop/bpa_data/bpa_flake_data.csv")
+elongation <- bpa_flakes$TechLength/bpa_flakes$MaxTechWidth
+flatness <- bpa_flakes$MaxTechWidth/bpa_flakes$MidThickness
+surface_area <- bpa_flakes$MaxTechWidth*bpa_flakes$TechLength
+bpa_flakes_2 <- bpa_flakes %>%
+  mutate(elongation, flatness, surface_area)
+form <- bpa_flakes_2$elongation/bpa_flakes_2$flatness
+bpa_flakes_3 <- bpa_flakes_2 %>%
+  mutate(form)
+bpa_flakes_3$EvidenceBipolarPercussion[bpa_flakes_3$EvidenceBipolarPercussion == 'Yes'] <- 'Bipolar'
+bpa_flakes_3$EvidenceBipolarPercussion[bpa_flakes_3$EvidenceBipolarPercussion == 'No'] <- 'Freehand'
+bpa_flakes_updated <- subset(bpa_flakes_3, LithicArtifactClass == 'CompFlake')
+bpa_bladelets <- subset(bpa_flakes_updated, Bladelet == 'Yes')
+bpa_retouched_utilized <- subset(bpa_flakes_3,Completeness == 'Complete' & LithicArtifactClass == 'RetouchedPiece' | LithicArtifactClass =='Utilized')
+bpa_retouched_utilized
+```
+
+core data
+
+```{r}
+bpa_cores = read.csv("C:/Users/caleb/Desktop/bpa_data/bpa_core_data.csv")
+surface_area_cores <- (2*bpa_cores$MaxLength*bpa_cores$MaxWidth) + (2*bpa_cores$MaxWidth*bpa_cores$MaxThickness) + (2*bpa_cores$MaxLength*bpa_cores$MaxThickness)
+SDI= bpa_cores$OverallScarCount/surface_area_cores
+bpa_cores_2 <- bpa_cores %>%
+  mutate(surface_area_cores, SDI)
+bpa_cores_2$EvidenceBipolar[bpa_cores_2$EvidenceBipolar == 'Yes'] <- 'Bipolar'
+bpa_cores_2$EvidenceBipolar[bpa_cores_2$EvidenceBipolar == 'No'] <- 'Freehand'
+bpa_cores_updated <- subset(bpa_cores_2, CoreTypology == 'Core>2flakescars')
+
+```
+
+Split flakes by SubMember
+
+```{r}
+CL1_flakes = subset(bpa_flakes_updated, SubMember == 'CL1')
+CL2_flakes = subset(bpa_flakes_updated, SubMember == 'CL2')
+CL3_flakes = subset(bpa_flakes_updated, SubMember == 'CL3')
+CL4_flakes = subset(bpa_flakes_updated, SubMember == 'CL4')
+```
+
+## What I found (Results)
+
+### Assemblage Composition
+
+```{r}
+#flakes raw material composition
+bpa_flakes_updated %>%
+  group_by(SubMember) %>%
+  count(RawMaterial) %>%
+  ggplot(aes(x = as.factor(SubMember), y = n, fill = factor(RawMaterial))) +
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Raw Material")
+ggsave("fig-raw-material-composition.png")
+
+#cores raw material composition
+bpa_cores_updated %>%
+  group_by(SubMember) %>%
+  count(RawMaterial) %>%
+  ggplot(aes(x = as.factor(SubMember), y = n, fill = factor(RawMaterial))) +
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Raw Material")
+ggsave("fig-raw-material-composition_cores.png")
+```
+
+### **Convergence in Flake Reduction Strategy**
+
+```{r}
+#| label: fig-reduction-method
+#| fig-cap: "CL 1-4 Bipolar and freehand reduction frequencies for all raw material types."
+#| warning: false
+
+bpa_flakes_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(EvidenceBipolarPercussion) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = EvidenceBipolarPercussion))+
+  geom_col(position = "fill", colour="black")+
+  coord_flip()+
+  labs(x="Raw Material",y="Proportion", fill="Reduction Strategy")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-reduction-method.png")
+
+bipolar_freehand_flakes <- chisq.test(table(bpa_flakes_updated$RawMaterial, bpa_flakes_updated$EvidenceBipolarPercussion))
+bipolar_freehand_flakes
+```
+
+Technical Category/Reduction Stage
+
+```{r}
+#| label: fig-technical-category
+#| fig-cap: "CL 1-4 Technical Category frequencies for all raw material types."
+#| warning: false
+bpa_flakes_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(TechnicalCategory) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = factor(TechnicalCategory, levels=c("A1", "A2", "A3", "B1", "B2", "B4", "B6", "B8", "B9", "B11", "C1", "C2", "D1", "D2")))) +
+  coord_flip()+
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Technical Category")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-technical-category.png")
+
+#| label: fig-reduction_stage
+#| fig-cap: "CL 1-4 Reduction Stage frequencies for all raw material types."
+#| warning: false
+bpa_flakes_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(Stage) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = factor(Stage, levels=c("Initial", "Main", "Core Maintenance", "Other")))) +
+  coord_flip()+
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Reduction Stage")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-reduction-stage.png")
+```
+
+### Convergence in Flake Shape
+
+Elongation (Flakes)
+
+```{r}
+#testing elongation data for normality
+qqnorm(bpa_flakes_updated$elongation)
+qqline(bpa_flakes_updated$elongation)
+
+ggplot(bpa_flakes_updated, mapping = aes(x=elongation))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#elongation anova
+elongation_anova <- aov(log(elongation) ~ as.factor(RawMaterial), data=bpa_flakes_updated)
+summary(elongation_anova)
+
+#plot 2
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember))+
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log elongation")
+ggsave("fig-flake-elongation.png")
+
+#elongation anova
+elongation_anova_2 <- aov(log(elongation) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_flakes_updated)
+summary(elongation_anova_2)
+
+#post-hoc tests
+flake_elongation_tukey = TukeyHSD(elongation_anova_2)
+plot(flake_elongation_tukey)
+```
+
+Elongation (bladelets)
+
+```{r}
+#testing elongation data for normality
+qqnorm(bpa_bladelets$elongation)
+qqline(bpa_bladelets$elongation)
+ggplot(bpa_bladelets, mapping = aes(x=elongation))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#elongation anova
+bladelet_elongation_anova <- aov(log(elongation) ~ as.factor(RawMaterial), data=bpa_bladelets)
+summary(bladelet_elongation_anova)
+
+#plot 2
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember))+
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log elongation")
+ggsave("fig-bladelet-elongation.png")
+
+#elongation anova
+bladelet_elongation_anova_2 <- aov(log(elongation) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_bladelets)
+summary(bladelet_elongation_anova_2)
+
+TukeyHSD(bladelet_elongation_anova_2)
+```
+
+Flatness (Flakes)
+
+```{r}
+#testing flatness data for normality
+qqnorm(bpa_flakes_updated$flatness)
+qqline(bpa_flakes_updated$flatness)
+ggplot(bpa_flakes_updated, mapping = aes(x=flatness))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = flatness)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = flatness)) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log flatness")
+ggsave("fig-flake-flatness.png")
+
+#flake_flatness_anova
+flake_flatness_anova_2 <- aov(log(flatness) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_flakes_updated)
+summary(flake_flatness_anova_2)
+
+TukeyHSD(flake_flatness_anova_2)
+```
+
+Flatness (bladelets)
+
+```{r}
+#testing elongation data for normality
+qqnorm(bpa_bladelets$flatness)
+qqline(bpa_bladelets$flatness)
+ggplot(bpa_bladelets, mapping = aes(x=flatness))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(flatness))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#elongation anova
+bladelet_flatness_anova <- aov(log(flatness) ~ as.factor(RawMaterial), data=bpa_bladelets)
+summary(bladelet_flatness_anova)
+
+#plot 2
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(flatness))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember))+
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1)) +
+  labs(x="Raw Material", y="log flatness")
+ggsave("fig-bladelet-flatness.png")
+
+#flatness anova
+bladelet_flatness_anova_2 <- aov(log(flatness) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_bladelets)
+summary(bladelet_flatness_anova_2)
+
+TukeyHSD(bladelet_flatness_anova_2)
+```
+
+Form Flakes
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_flakes_updated$form)
+qqline(bpa_flakes_updated$form)
+ggplot(bpa_flakes_updated, mapping = aes(x=form))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log form")
+ggsave("fig-flake-form.png")
+
+#flake_form_anova
+flake_form_anova_2 <- aov(log(form) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_flakes_updated)
+summary(flake_form_anova_2)
+
+TukeyHSD(flake_form_anova_2)
+```
+
+Form (bladelets)
+
+```{r}
+#testing elongation data for normality
+qqnorm(bpa_bladelets$form)
+qqline(bpa_bladelets$form)
+ggplot(bpa_bladelets, mapping = aes(x=form))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#form anova
+bladelet_form_anova <- aov(log(form) ~ as.factor(RawMaterial), data=bpa_bladelets)
+summary(form_anova)
+
+#plot 2
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember))+
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log form")
+ggsave("fig-bladelet_form.png")
+
+#form anova
+bladelet_form_anova_2 <- aov(log(form) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_bladelets)
+summary(bladelet_form_anova_2)
+
+TukeyHSD(bladelet_form_anova_2)
+```
+
+### **Convergence in Flake Size**
+
+Surface Area
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_flakes_updated$surface_area)
+qqline(bpa_flakes_updated$surface_area)
+ggplot(bpa_flakes_updated, mapping = aes(x=surface_area))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+ggsave("bpa_flake_sa.png")
+
+##anova
+flake_sa_anova <- aov(log(surface_area) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_flakes_updated)
+summary(flake_sa_anova)
+
+TukeyHSD(flake_sa_anova)
+```
+
+Mass
+
+```{r}
+#normality check
+qqnorm(bpa_flakes_updated$Mass)
+qqline(bpa_flakes_updated$Mass)
+ggplot(bpa_flakes_updated, mapping = aes(x=Mass))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_flakes_updated, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+ggsave("fig_flake_mass.png")
+
+##anova
+flake_mass_anova <- aov(log(Mass) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_flakes_updated)
+
+TukeyHSD(flake_mass_anova)
+```
+
+bladelet surface area
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_bladelets$surface_area)
+qqline(bpa_bladelets$surface_area)
+ggplot(bpa_bladelets, mapping = aes(x=surface_area))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_bladelets, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+ggsave("bpa_bladelet_sa.png")
+
+##anova
+bladelet_sa_anova <- aov(log(surface_area) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_bladelets)
+summary(bladelet_sa_anova)
+
+TukeyHSD(bladelet_sa_anova)
+```
+
+### Retouched/Utilized pieces
+
+Elongation
+
+```{r retouched elongation}
+#normality check
+qqnorm(bpa_retouched_utilized$elongation)
+qqline(bpa_retouched_utilized$elongation)
+ggplot(bpa_retouched_utilized, mapping = aes(x=elongation))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(elongation))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1)) + 
+  labs(x="Raw Material", y="log elongation")
+ggsave("fig_retouch_elongation.png")
+
+##anova
+retouched_elongation_anova <- aov(log(elongation) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_retouched_utilized)
+summary(retouched_elongation_anova)
+
+TukeyHSD(retouched_elongation_anova)
+```
+
+Flatness
+
+```{r retouched flatness}
+#normality check
+qqnorm(bpa_retouched_utilized$flatness)
+qqline(bpa_retouched_utilized$flatness)
+ggplot(bpa_retouched_utilized, mapping = aes(x=flatness))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(flatness))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(flatness))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1)) +
+  labs(x="Raw Material", y="log flatness")
+ggsave("fig_retouch_flatness.png")
+
+##anova
+retouched_flatness_anova <- aov(log(flatness) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_retouched_utilized)
+summary(retouched_flatness_anova)
+
+TukeyHSD(retouched_flatness_anova)
+```
+
+Form
+
+```{r surface area}
+#normality check
+qqnorm(bpa_retouched_utilized$form)
+qqline(bpa_retouched_utilized$form)
+ggplot(bpa_retouched_utilized, mapping = aes(x=form))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(form))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log form")
+ggsave("fig_retouch_form.png")
+
+##anova
+retouched_form_anova <- aov(log(form) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_retouched_utilized)
+summary(retouched_form_anova)
+
+TukeyHSD(retouched_form_anova)
+```
+
+Surface area
+
+```{r surface area}
+#normality check
+qqnorm(bpa_retouched_utilized$surface_area)
+qqline(bpa_retouched_utilized$surface_area)
+ggplot(bpa_retouched_utilized, mapping = aes(x=surface_area))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(surface_area))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+
+  labs(x="Raw Material", y="log surface area")
+ggsave("fig_retouch_surface_area.png")
+
+##anova
+retouched_sa_anova <- aov(log(surface_area) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_retouched_utilized)
+summary(retouched_sa_anova)
+
+TukeyHSD(retouched_sa_anova)
+```
+
+```{r retouched mass}
+#normality check
+qqnorm(bpa_retouched_utilized$Mass)
+qqline(bpa_retouched_utilized$Mass)
+ggplot(bpa_retouched_utilized, mapping = aes(x=Mass))+
+  geom_histogram()
+
+#plot 1 
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+
+#plot 2
+ggplot(bpa_retouched_utilized, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))
+ggsave("fig_retouch_mass.png")
+
+##anova
+retouched_mass_anova <- aov(log(Mass) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_retouched_utilized)
+
+TukeyHSD(retouched_mass_anova)
+```
+
+### Convergence in Core Shape
+
+```{r}
+bpa_cores_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(CoreBlankSphericity) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = factor(CoreBlankSphericity))) +
+  coord_flip()+
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Core Shape")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-core-shape.png")
+
+core_shape_chi_sq <- chisq.test(table(bpa_cores_updated$RawMaterial, bpa_cores_updated$CoreBlankSphericity))
+core_shape_chi_sq
+```
+
+### Convergence in Core Size
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_cores_updated$surface_area_cores)
+qqline(bpa_cores_updated$surface_area_cores)
+ggplot(bpa_cores_updated, mapping = aes(x=surface_area_cores))+
+  geom_histogram()
+
+#plot 1
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(surface_area_cores))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log surface area")
+ggsave("fig-core-surface-area.png")
+
+#plot 2
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(surface_area_cores))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log surface area")
+ggsave("fig-core-surface-area-2.png")
+
+#core surface area anova
+core_sa_anova <- aov(log(surface_area_cores) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_cores_updated)
+summary(core_sa_anova)
+
+TukeyHSD(core_sa_anova)
+```
+
+Mass
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_cores_updated$Mass)
+qqline(bpa_cores_updated$Mass)
+ggplot(bpa_cores_updated, mapping = aes(x=Mass))+
+  geom_histogram()
+
+#plot 1
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log mass")
+ggsave("fig-core-mass.png")
+
+#plot 2
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(Mass))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log mass")
+ggsave("fig-core-mass-2.png")
+
+#core mass anova
+##anova
+core_mass_anova <- aov(log(Mass) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_cores_updated)
+
+TukeyHSD(core_mass_anova)
+```
+
+### Core Reduction Strategy
+
+```{r}
+bpa_cores_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(EvidenceBipolar) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = factor(EvidenceBipolar))) +
+  coord_flip()+
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Reduction Strategy")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-core-reduction-strategy.png")
+
+core_reduction_chi_sq <- chisq.test(table(bpa_cores_updated$RawMaterial, bpa_cores_updated$EvidenceBipolarPercussion))
+core_reduction_chi_sq
+```
+
+### Core Typology
+
+```{r}
+bpa_cores_updated %>%
+  group_by(RawMaterial, SubMember) %>%
+  count(CoreSubTypology) %>%
+  ggplot(aes(x = as.factor(RawMaterial), y = n, fill = factor(CoreSubTypology))) +
+  coord_flip()+
+  geom_col(position = "fill", colour="black")+
+  labs(x="Raw Material",y="Proportion", fill="Core Sub Typology")+ 
+  facet_wrap(~SubMember)
+ggsave("fig-core-typology.png")
+```
+
+### **Reduction Intensity**
+
+ARI
+
+```{r}
+#average flake length
+av_flake_lengths = aggregate(bpa_flakes_updated$TechLength, list(bpa_flakes_updated$RawMaterial, bpa_flakes_updated$SubMember), FUN=mean) 
+
+#average core length
+av_core_lengths = aggregate(bpa_cores_updated$MaxLength, list(bpa_cores_updated$RawMaterial, bpa_cores_updated$SubMember), FUN=mean) 
+
+write.csv(av_flake_lengths,file='C:/Users/caleb/Desktop/bpa_data/av_flake_lengths.csv', row.names=FALSE) 
+write.csv(av_core_lengths,file='C:/Users/caleb/Desktop/bpa_data/av_core_lengths.csv', row.names=FALSE)
+ARI = read.csv("C:/Users/caleb/Desktop/bpa_data/ARI.csv")
+
+#plot
+ggplot(data=ARI, mapping = aes(x=as.factor(RawMaterial), y=ARI)) +
+  geom_bar(stat="identity") +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle = 45, hjust=1, vjust=1))+
+  labs(x="Raw Material", y="ARI")
+ggsave("fig-ARI.png")
+```
+
+SDI
+
+```{r}
+#testing form data for normality
+qqnorm(bpa_cores_updated$SDI)
+qqline(bpa_cores_updated$SDI)
+ggplot(bpa_cores_updated, mapping = aes(x=SDI))+
+  geom_histogram()
+
+#plot 1
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(SDI))) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log SDI")
+ggsave("fig-core-SDI.png")
+
+##anova
+SDI_anova <- aov(log(SDI) ~ as.factor(RawMaterial) + as.factor(SubMember), data=bpa_cores_updated, group = T)
+summary(SDI_anova)
+TukeyHSD(SDI_anova)
+
+#plot 2
+ggplot(bpa_cores_updated, aes(x= as.factor(RawMaterial), y = log(SDI))) +
+  geom_boxplot() +
+  facet_wrap(vars(SubMember)) +
+  theme(axis.text.x = element_text(angle=45, vjust = 1, hjust=1))+  
+  labs(x="Raw Material", y="log SDI")
+ggsave("fig-core-SDI.png")
+```
+
+## How does this work inform my plans for the next phases of my proposal? (Discussion)

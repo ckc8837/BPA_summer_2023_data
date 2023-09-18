@@ -1,0 +1,86 @@
+﻿DateOfDataEntry,Square,Member,SubMember,ToolNumber,RawMaterial,OtherRaw MaterialID,CoreTypology,OverallCortexArea,CortexType,CoreArtifactClass,EvidenceBipolar,NumberCoreFaces,WhichIsPlatform,CoreBlankSphericity,IntendedProduct,CoreSubTypology,ConardUnifiedType,BipolarChronology,DegreeOfKnappingAlongCircumference,OverallScarCount,LengthLongestFlakeScar,MaxLength,MaxWidth,MaxThickness,Mass,OtherNotes,Photograph,FeatureName
+21/07/2023,P13,CL,CL4,860,Chalcedony,,Core>2flakescars,0%,,CompCore,Both,Three,None,Flake,BladeBladelet,Bladeletcore,Bipolar,AfterFH,270-360,5,9.27,10.2,5.98,5.52,0.29,,Yes,GG2
+25/07/2023,O14,CL,CL1,912,CoarseChert,,Core>2flakescars,1-10%,Cobble,CompCore,Both,MoreThanFour,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,AfterFH,270-360,4,20.85,21.45,12.34,9.22,3.03,,Yes,N/A
+26/07/2023,O14,CL,CL3,933,CoarseChert,,Core>2flakescars,11-40%,Cobble,CompCore,Both,Four,One,NotSphericalFlat,Flake,Irregularcore,Platform,AfterFH,180-270,4,12.25,31.5,22.92,15.18,11.34,"looks heat treated. possibly silcrete, but uncertain",Yes,N/A
+21/07/2023,P13,CL,CL4,868,CrystalQuartz,,Core>2flakescars,11-40%,Outcrop,CompCore,Both,Four,None,SphericalOrCubic,Flake,Radialcore,Platform,AfterFH,270-360,6,8.07,18.41,16.73,8.5,3.28,dome shaped core,Yes,base
+24/07/2023,P13,CL,CL2,884,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Both,Three,One,SphericalOrCubic,Flake,Radialcore,Platform,AfterFH,270-360,6,6.16,8.58,7.55,4.43,0.24,,Yes,AF4
+21/07/2023,P13,CL,CL3,870,VeinQuartz,,Core>2flakescars,1-10%,Cobble,CompCore,Both,Two,None,Flake,Flake,Irregularcore,Parallel,AfterFH,90-180,3,9.11,18.69,10.07,3.97,0.73,core-on-flake,No,MOT.ASH
+24/07/2023,P13,CL,CL2,878,Sandstone,,Core>2flakescars,11-40%,Cobble,CoreFrag,Both,MoreThanFour,None,NotSphericalFlat,Flake,Irregularcore,Platform,AfterFH,180-270,3,22.27,49.87,48.76,22.41,73.78,,Yes,AF4
+24/07/2023,P13,CL,CL3,897,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Both,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,BeforeFH,270-360,3,9.32,9.32,6.11,2.99,0.15,,No,N/A
+24/07/2023,P13,CL,CL2,880,FineChert,,Core>2flakescars,0%,,CompCore,Both,Two,None,NotSphericalFlat,Flake,CoreReducedPiece,Parallel,BeforeFH,180-270,6,8.76,11.76,11.37,3.59,0.56,core-on-flake,Yes,AF4
+21/07/2023,P13,CL,CL4,866,VeinQuartz,,Core>2flakescars,0%,,CompCore,Both,Four,None,NotSphericalFlat,BladeBladelet,Bladeletcore,Bipolar,BeforeFH,270-360,5,8.83,15.2,6.99,6.02,0.91,,Yes,N/A
+24/07/2023,P13+P14,CL,CL3,891,VeinQuartz,,Core>2flakescars,0%,,CoreFrag,Both,MoreThanFour,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,BeforeFH,270-360,4,17.04,17.41,12.3,14.37,4,"split on one end with bipolar, other removals occur along another platform surface",Yes,Mousehole
+26/07/2023,O14,CL,CL3,932,VeinQuartz,,Core>2flakescars,0%,,CompCore,Both,Three,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,BeforeFH,270-360,3,13.11,13.87,7.83,5.31,0.64,,Yes,MUISGAT
+26/07/2023,O14,CL,CL3,941,VeinQuartz,,Core>2flakescars,1-10%,Outcrop,CompCore,Both,MoreThanFour,One,SphericalOrCubic,Flake,Irregularcore,Platform,BeforeFH,270-360,5,11.64,12.76,9.16,7.04,1.08,,No,MA
+25/07/2023,O14,CL,CL2,920,Quartzite,,Core>2flakescars,61-90%,Cobble,CompCore,Both,MoreThanFour,One,SphericalOrCubic,Flake,Irregularcore,Platform,BeforeFH,0-90,4,46.33,110.48,81.02,75.59,1139.6,battered cobble,Yes,MOU
+24/07/2023,P13,CL,CL3,901,CrystalQuartz,,Core>2flakescars,11-40%,Outcrop,CompCore,No,Four,One,SphericalOrCubic,Flake,Irregularcore,Platform,indeterminate,90-180,2,9.73,25.54,13.74,15.27,6.32,,Yes,N/A
+26/07/2023,O14,CL,CL3,931,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,indeterminate,270-360,3,9,9.86,5.73,3.93,0.24,,Yes,MUISGAT
+24/07/2023,P13,CL,CL3,907,FineChert,,Core>2flakescars,0%,,CompCore,No,Four,One,SphericalOrCubic,Flake,Irregularcore,Platform,indeterminate,180-270,4,23.5,23.5,13.75,12.9,4,,Yes,AF5
+21/07/2023,P13,CL,CL3,869,VeinQuartz,,Core>2flakescars,0%,,CompCore,No,Two,None,Flake,Flake,Irregularcore,Parallel,indeterminate,270-360,3,7.74,10.72,10.52,3.09,0.4,core-on-flake,Yes,MOT.ASH
+21/07/2023,P13,CL,CL2,871,VeinQuartz,,Chunks<2flakescars,11-40%,Cobble,,No,,,,Flake,,,indeterminate,,2,15.27,51.36,26.21,21.69,33.71,not heavily worked,Yes,N/A
+24/07/2023,P13,CL,CL3,902,VeinQuartz,,Core>2flakescars,1-10%,Cobble,CompCore,No,MoreThanFour,One,SphericalOrCubic,Flake,Irregularcore,Platform,indeterminate,90-180,2,9.47,11.55,14.61,10.36,2.35,,No,N/A
+24/07/2023,P13,CL,CL3,905,VeinQuartz,,Core>2flakescars,0%,,CompCore,No,Four,None,SphericalOrCubic,Flake,Irregularcore,Inclined,indeterminate,90-180,4,11.93,18.84,12.49,9.82,2.78,,No,AF5
+25/07/2023,O14,CL,CL2,914,VeinQuartz,,Core>2flakescars,1-10%,Cobble,CompCore,Yes,MoreThanFour,One,SphericalOrCubic,Flake,CoreReducedPiece,Platform,indeterminate,180-270,3,19.27,20.64,15.71,13.23,3.6,,No,N/A
+26/07/2023,O14,CL,CL3,926,VeinQuartz,,Core>2flakescars,0%,,CompCore,No,Three,One,SphericalOrCubic,Flake,Irregularcore,Inclined,indeterminate,180-270,4,35,75.02,56.79,29.85,128.7,,Yes,Mousel
+26/07/2023,O14,CL,CL3,939,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,Flake,Irregularcore,Other,indeterminate,270-360,4,15.12,18.29,10.96,10.6,2.7,,No,MA
+26/07/2023,O14,CL,CL3,940,VeinQuartz,,Chunks<2flakescars,41-60%,Outcrop,,Yes,,,,Flake,,,indeterminate,,1,38.76,39.88,18.82,20.85,16.89,could also be crystal quartz,Yes,MA
+26/07/2023,O14,CL,CL3,945,VeinQuartz,,Core>2flakescars,0%,,CompCore,No,Four,One,SphericalOrCubic,Flake,Irregularcore,Platform,indeterminate,180-270,3,22.1,30.45,28.71,20.03,12.37,,Yes,BBG
+25/07/2023,O14,CL,CL1,909,Quartzite,,Core>2flakescars,1-10%,Cobble,CompCore,No,Four,One,SphericalOrCubic,Flake,Radialcore,Platform,indeterminate,270-360,10,41.1,55.06,41.68,25.41,64.63,"raw material uncertain. Likely very fine grain quartzite, possible coarse chert.",Yes,lower
+25/07/2023,O14,CL,CL1,910,Quartzite,Ochre,Core>2flakescars,41-60%,Cobble,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,Flake,Irregularcore,Other,indeterminate,90-180,5,52.98,80.12,75.44,50.9,419.4,possibly ochre,Yes,AF8
+25/07/2023,O14,CL,CL2,921,Quartzite,,Core>2flakescars,61-90%,Cobble,CompCore,No,MoreThanFour,None,NotSphericalFlat,Flake,Irregularcore,Other,indeterminate,180-270,6,40.53,133.89,81.97,48.63,669.3,flaked in opposite directions on both edges,Yes,MOU
+26/07/2023,O14,CL,CL3,943,Quartzite,,Core>2flakescars,11-40%,Cobble,CompCore,No,Four,One,SphericalOrCubic,Flake,Irregularcore,Platform,indeterminate,270-360,5,31.23,61.67,48.97,33.71,94.1,core-on-flake,Yes,BBG
+26/07/2023,O14,CL,CL3,944,Silcrete,,Core>2flakescars,0%,,CompCore,No,Four,One,SphericalOrCubic,Flake,Radialcore,Platform,indeterminate,270-360,6,27.42,41.07,24.05,16.99,14.91,,Yes,BBG
+25/07/2023,O14,CL,CL1,911,Chalcedony,,Core>2flakescars,0%,,CompCore,Yes,Four,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,270-360,7,12.45,16.25,6.21,6.44,0.89,,Yes,N/A
+24/07/2023,P13,CL,CL2,877,CoarseChert,,Core>2flakescars,11-40%,Outcrop,CompCore,Yes,MoreThanFour,None,NotSphericalFlat,Flake,Irregularcore,Bipolar,NoFH,90-180,3,11.28,29.08,16.35,12.27,7.7,,Yes,AF4
+21/07/2023,O14,CL,CL3,857,CrystalQuartz,,Core>2flakescars,11-40%,Outcrop,CompCore,Yes,Four,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,NoFH,180-270,6,7.95,12.45,10.99,8.57,1.28,,Yes,
+21/07/2023,P13,CL,CL4,861,CrystalQuartz,,Core>2flakescars,1-10%,Outcrop,CompCore,Yes,Four,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,180-270,4,6.75,7.7,7.12,3.86,0.23,,Yes,GGG
+21/07/2023,P13,CL,CL4,864,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,270-360,3,7.42,8.67,3.9,3.28,0.1,,Yes,N/A
+21/07/2023,P13,CL,CL4,865,CrystalQuartz,,Chunks<2flakescars,0%,,,No,,,,Flake,,,NoFH,,2,4.57,8.68,5.05,4.65,0.27,,No,N/A
+21/07/2023,P13,CL,CL4,867,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,SphericalOrCubic,Flake,RiceGrainCore,Inclined,NoFH,270-360,4,4.06,6.48,4.1,3.23,0.08,"rice grain core, flake scars all <5mm",Yes,YP
+21/07/2023,P13,CL,CL2,873,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,BladeBladelet,RiceGrainCore,Parallel,NoFH,270-360,4,9.32,9.57,5.06,2.94,0.15,,Yes,N/A
+21/07/2023,P13,CL,CL2,875,CrystalQuartz,,Core>2flakescars,11-40%,Cobble,CompCore,Yes,Two,None,Flake,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,4,8.52,8.87,6.97,3.53,0.2,core-on-flake,Yes,N/A
+21/07/2023,P13,CL,CL2,876,CrystalQuartz,,Core>2flakescars,0%,,CoreFrag,Yes,Two,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,270-360,3,5.44,8.16,5.47,3.36,0.15,,No,N/A
+24/07/2023,P13,CL,CL2,879,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,5,6.14,11.82,4.45,3.07,0.16,,Yes,AF4
+24/07/2023,P13,CL,CL2,882,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,3,8.08,8.48,6.57,1.71,0.12,,No,AF4
+24/07/2023,P13,CL,CL2,883,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,4,9.61,9.86,7.74,3.06,0.25,,Yes,AF4
+24/07/2023,P13,CL,CL2,885,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,SphericalOrCubic,Flake,RiceGrainCore,Bipolar,NoFH,270-360,3,6.41,7.05,4.36,2.91,0.09,,Yes,AF4
+24/07/2023,P13,CL,CL2,886,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,Flake,CoreReducedPiece,Inclined,NoFH,180-270,3,7.05,8.47,4.11,3.02,0.15,,No,AF4
+24/07/2023,P13,CL,CL1,888,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,4,7.43,8.34,3.51,3.25,0.12,,No,N/A
+24/07/2023,P13,CL,CL1,889,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Inclined,NoFH,270-360,5,8.06,8.06,4.03,4.65,0.18,,Yes,N/A
+24/07/2023,P13,CL,CL1,890,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,NoFH,270-360,5,9.68,9.94,5.65,4.17,0.37,,Yes,N/A
+24/07/2023,P13,CL,CL3,892,CrystalQuartz,,Core>2flakescars,41-60%,Outcrop,CompCore,Yes,Four,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,3,8.96,20.36,11.19,7.91,2.26,only flaked on one face,No,MOT.ASH
+24/07/2023,P13,CL,CL3,898,CrystalQuartz,,Core>2flakescars,0%,,CoreFrag,Yes,Two,None,NotSphericalFlat,Flake,Irregularcore,Parallel,NoFH,180-270,2,6.23,9.38,5.11,1.81,0.14,,No,N/A
+24/07/2023,P13,CL,CL3,899,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,One,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,270-360,4,7.18,7.21,5.37,4.99,0.23,,Yes,N/A
+24/07/2023,P13,CL,CL3,900,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,3,8.42,8.42,5.1,3.2,0.12,,Yes,N/A
+24/07/2023,P13,CL,CL3,903,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,180-270,3,11.66,11.66,4.69,3.71,0.22,,No,N/A
+24/07/2023,P13,CL,CL3,904,CrystalQuartz,,Core>2flakescars,11-40%,Cobble,CompCore,Yes,Three,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,NoFH,180-270,3,10.76,11.14,5.38,5.06,0.31,,No,N/A
+25/07/2023,O14,CL,CL2,917,CrystalQuartz,,Core>2flakescars,41-60%,Outcrop,CompCore,Yes,Two,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Inclined,NoFH,90-180,3,13.08,13.49,7.31,3.75,0.41,,Yes,N/A
+25/07/2023,O14,CL,CL2,918,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,270-360,3,10.5,11.6,4.73,2.93,0.18,,No,N/A
+25/07/2023,O14,CL,CL3,924,CrystalQuartz,,Core>2flakescars,11-40%,Outcrop,CompCore,Yes,Three,None,NotSphericalFlat,Flake,Irregularcore,Bipolar,NoFH,180-270,3,7.32,15.88,7.68,5.76,1.21,,No,AF21
+26/07/2023,O14,CL,CL3,927,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,270-360,3,8.02,8.02,6.37,5.97,0.35,,No,Mousel
+26/07/2023,O14,CL,CL3,928,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Platform,NoFH,180-270,3,9.25,9.91,4.24,2.91,0.11,,No,BG
+26/07/2023,O14,CL,CL3,929,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,180-270,4,7.91,7.91,4.2,3.97,0.17,,No,BG
+26/07/2023,O14,CL,CL3,930,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,3,6.57,9.68,6.12,4.58,0.22,,No,BG
+26/07/2023,O14,CL,CL3,934,CrystalQuartz,,Core>2flakescars,0%,,CompCore,Yes,Two,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,5,5.08,10.16,6.25,4.51,0.24,,No,Mousehole
+26/07/2023,O14,CL,CL3,935,CrystalQuartz,,Core>2flakescars,11-40%,Outcrop,CompCore,Yes,Two,None,NotSphericalFlat,Flake,Irregularcore,Bipolar,NoFH,90-180,3,7.62,11.4,7.23,4.96,0.4,,No,Mousehole
+24/07/2023,P13,CL,CL2,881,FineChert,,Core>2flakescars,11-40%,Cobble,CompCore,Yes,Three,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,180-270,3,10.83,12.71,7.53,6.01,0.62,,Yes,AF4
+24/07/2023,P13,CL,CL2,887,FineChert,,Core>2flakescars,0%,,CompCore,Yes,Two,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,180-270,3,7.77,7.77,6.82,2.66,0.16,,Yes,AF4
+25/07/2023,O14,CL,CL2,916,FineChert,,Core>2flakescars,1-10%,Cobble,CoreFrag,Yes,Four,One,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Parallel,NoFH,180-270,3,20.22,20.22,9.51,6.68,1.79,,Yes,N/A
+26/07/2023,O14,CL,CL3,937,FineChert,,Core>2flakescars,11-40%,Cobble,CompCore,Yes,MoreThanFour,One,SphericalOrCubic,Flake,Irregularcore,Platform,NoFH,90-180,4,17.43,20.74,10.63,13.41,2.78,,Yes,Mousehole
+26/07/2023,O14,CL,CL3,925,HeterogenousChert,,Core>2flakescars,0%,,CompCore,Yes,Four,One,SphericalOrCubic,Flake,Irregularcore,Platform,NoFH,180-270,3,23.61,24.88,19.82,14.27,7.63,,Yes,AF9 U
+21/07/2023,P13,CL,CL4,862,VeinQuartz,,Core>2flakescars,1-10%,Outcrop,CompCore,Yes,Four,Four,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,180-270,3,12.37,13.62,7.35,4.51,0.61,,Yes,GGG
+21/07/2023,P13,CL,CL4,863,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,SphericalOrCubic,BladeBladelet,FlatBladeletCore,Inclined,NoFH,270-360,4,14.66,14.69,5.42,4.21,0.45,,Yes,GGG
+21/07/2023,P13,CL,CL2,872,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,BladeBladelet,Bladeletcore,Bipolar,NoFH,180-270,6,13.58,19.88,13.85,10.96,5.51,,Yes,N/A
+24/07/2023,P13,CL,CL3,893,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,SphericalOrCubic,Flake,Radialcore,Bipolar,NoFH,270-360,4,14.44,14.48,7.47,8.56,1.22,,No,MOT.ASH
+24/07/2023,P13,CL,CL3,894,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Three,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,270-360,2,13.25,13.25,6.31,4.55,0.37,,No,MOT.ASH
+24/07/2023,P13,CL,CL3,895,VeinQuartz,,Core>2flakescars,0%,,CoreFrag,Yes,Four,None,NotSphericalFlat,BladeBladelet,FlatBladeletCore,Bipolar,NoFH,180-270,3,14.58,15.51,8.1,6.99,1.01,,No,MOT.ASH
+24/07/2023,P13,CL,CL3,896,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,NotSphericalFlat,Flake,CoreReducedPiece,Bipolar,NoFH,180-270,5,10.48,13.53,8.68,5.36,0.79,recycled bipolar core,Yes,MOT.ASH
+24/07/2023,P13,CL,CL3,906,VeinQuartz,,Core>2flakescars,1-10%,Cobble,CoreFrag,Yes,Four,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,90-180,3,17.44,19.28,8.6,9.82,2.63,,No,AF5
+25/07/2023,O14,CL,CL2,913,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,One,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,180-270,4,26.78,26.79,11.85,15.66,4.28,,No,N/A
+25/07/2023,O14,CL,CL2,915,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,180-270,4,26.57,36.06,30.11,23.71,29.94,,Yes,N/A
+25/07/2023,O14,CL,CL3,923,VeinQuartz,,Core>2flakescars,1-10%,Outcrop,CompCore,Yes,Two,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,90-180,4,8.91,17.04,6.52,7.01,0.93,,No,AF21
+26/07/2023,O14,CL,CL3,936,VeinQuartz,,Core>2flakescars,1-10%,Outcrop,CompCore,Yes,Four,One,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,5,19.74,25.11,20.34,19.19,9.93,,Yes,Mousehole
+26/07/2023,O14,CL,CL3,938,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,Four,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,180-270,3,12.33,19.72,16.13,15.75,5.36,,No,MA
+26/07/2023,O14,CL,CL3,942,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,One,SphericalOrCubic,BladeBladelet,FlatBladeletCore,Platform,NoFH,270-360,4,16.69,16.71,7.69,7.93,1.06,,Yes,MA
+26/07/2023,O14,CL,CL3,946,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,None,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,6,19.09,22.74,18.07,17.43,7.12,,Yes,BBG
+26/07/2023,O14,CL,CL3,947,VeinQuartz,,Core>2flakescars,0%,,CompCore,Yes,MoreThanFour,One,SphericalOrCubic,Flake,Irregularcore,Bipolar,NoFH,270-360,4,20.82,25.25,12.34,10.56,4.25,,No,BBG
